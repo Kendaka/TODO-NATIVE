@@ -4,7 +4,7 @@ import { TestDataButton,  } from './components/TestDataButton';
 
 interface Todo {
   id: number;
-  text: string
+  text: string;
   completed: boolean
 }
 
