@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { TestDataButton,  } from './components/TestDataButton';
 
 interface Todo {
-  id: number
+  id: number;
   text: string;
   completed: boolean;
 }
