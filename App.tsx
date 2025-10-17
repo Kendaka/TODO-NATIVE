@@ -14,7 +14,7 @@ export default function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodo = (): void => {
-    if (todoext.trim() !== '') {
+    if (todoText.trim() !== '') {
       const newTodo: Todo = {
         id: Date.now(),
         text: todoText,
