@@ -10,7 +10,7 @@ interface Todo {
 
 export default function App() {
 
-  const [stateName, setStateName] = useState<string>('Initial ');
+  const [stateName, setState] = useState<string>('Initial ');
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodo = (): void => {
