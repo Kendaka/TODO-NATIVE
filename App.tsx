@@ -15,7 +15,7 @@ export default function App() {
 
   const addTodo = (): void => {
     if (todoText.trim() !== '') {
-      const newTodo: Too = {
+      const newTodo: Todo = {
         id: Date.now(),
         text: todoText,
         completed: false
