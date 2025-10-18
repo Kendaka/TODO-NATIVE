@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-
-import { TestDataButton,  } from './components/TestDataButton';
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, FlatList, TouchableOpacity } from 'react-native';
+import { TestDataButton } from './components/TestDataButton';
 
 interface Todo {
   id: number;
@@ -9,9 +9,8 @@ interface Todo {
 }
 
 export default function App() {
-
-  const [stateName, setStateName] = useState<string>('Initial ');
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todoText, setTodoText] = useState<string>('');     // user input
+  const [todos, setTodos] = useState<Todo[]>([]);           // list of todos
 
   const addTodo = (): void => {
     if (todoText.trim() !== '') {
@@ -26,15 +25,36 @@ export default function App() {
   };
 
   const toggleTodo = (id: number): void => {
-    setTodos(todos.map(todo => {
-      if (todo.id === id) {
-        return { ...todo, completed: !todo.completed };
-      }
-      return todo;
-    }));
+    setTodos(todos.map(todo => 
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    ));
   };
 
   return (
-    <></>
+    <View style={{ padding: 20 }}>
+      <TextInput
+        value={todoText}
+        onChangeText={setTodoText}
+        placeholder="Enter a new todo"
+        style={{ borderWidth: 1, padding: 8, marginBottom: 10 }}
+      />
+      <Button title="Add Todo" onPress={addTodo} />
+
+      <FlatList
+        data={todos}
+        keyExtractor={item => item.id.toString()}
+        renderItem={({ item }) => (
+          <TouchableOpacity onPress={() => toggleTodo(item.id)}>
+            <Text style={{ 
+              textDecorationLine: item.completed ? 'line-through' : 'none',
+              fontSize: 18,
+              marginVertical: 4
+            }}>
+              {item.text}
+            </Text>
+          </TouchableOpacity>
+        )}
+      />
+    </View>
   );
 }
