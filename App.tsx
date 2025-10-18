@@ -19,7 +19,7 @@ export default function App() {
         text: todoText,
         completed: false
       };
-      setTodos([...tods, newTodo]);
+      setTodos([...todos, newTodo]);
       setTodoText('');
     }
   };
