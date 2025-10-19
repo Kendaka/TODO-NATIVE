@@ -9,7 +9,7 @@ interface Todo {
 }
 
 export default function App() {
-  const [todoText, setTodoText] = useState<string>('');     // user input
+  const [todoText, setTodoText] = useState<string>('');     
   const [todos, setTodos] = useState<Todo[]>([]);           // list of todos
 
   const addTodo = (): void => {
