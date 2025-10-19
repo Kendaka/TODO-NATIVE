@@ -10,7 +10,7 @@ interface Todo {
 
 export default function App() {
   const [todoText, setTodoText] = useState<string>('');     
-  const [todos, setTodos] = useState<Todo[]>([]);           // list of todos
+  const [todos, setTodos] = useState<Todo[]>([]); 
 
   const addTodo = (): void => {
     if (todoText.trim() !== '') {
