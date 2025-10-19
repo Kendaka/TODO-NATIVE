@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, FlatList, TouchableOpacity } from 'react-native';
-import { TestDataButton } from './components/TestDataButton';
 
 interface Todo {
   id: number;
@@ -9,8 +8,8 @@ interface Todo {
 }
 
 export default function App() {
-  const [todoText, setTodoText] = useState<string>('');     
-  const [todos, setTodos] = useState<Todo[]>([]); 
+  const [todoText, setTodoText] = useState<string>('');
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodo = (): void => {
     if (todoText.trim() !== '') {
@@ -25,7 +24,7 @@ export default function App() {
   };
 
   const toggleTodo = (id: number): void => {
-    setTodos(todos.map(todo => 
+    setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ));
   };
